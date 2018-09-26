@@ -6,3 +6,10 @@ You have two options,
 
 # Related
 Note that `google-cloud-sdk`  can also be installed using `conda install -c bioconda google-cloud-sdk` see: [anaconda_knowHow.md](https://github.com/jobel-code/knowledge-building-blog/blob/master/anaconda_knowHow.md).
+
+However, you need to keep only one installation, either *GCP on ubuntu* or *using the anaconda bioconda package*.
+
+# Best practices
+
+* keep only one `GCP SDK` installation. Do not duplicate by using `conda install ...`.
+  
