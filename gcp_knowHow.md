@@ -12,4 +12,26 @@ However, you need to keep only one installation, either *GCP on ubuntu* or *usin
 # Best practices
 
 * keep only one `GCP SDK` installation. Do not duplicate by using `conda install ...`.
-  
+
+# Create the service account key
+[SEE:](https://cloud.google.com/docs/authentication/production#auth-cloud-implicit-python)
+
+## GCP console
+
+- go to [Create service account key page](https://console.cloud.google.com/)
+
+## Command line <USE THIS>
+
+`gcloud iam service-accounts create [NAME]`
+
+`gcloud projects add-iam-policy-binding [PROJECT_ID] --member "serviceAccount:[NAME]@[PROJECT_ID].iam.gserviceaccount.com" --role "roles/owner"`
+
+`gcloud iam service-accounts keys create [FILE_NAME].json --iam-account [NAME]@[PROJECT_ID].iam.gserviceaccount.com`
+
+**mv `[FILE_NAME].json`** it to YOUR secure `.config/`
+
+**linux**  edit .bashrc
+`export GOOGLE_APPLICATION_CREDENTIALS="[PATH]"`
+
+**windows with `PowerShell`**
+`$env:GOOGLE_APPLICATION_CREDENTIALS="[PATH]"`
