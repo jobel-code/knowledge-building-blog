@@ -14,6 +14,7 @@ It is important to add them in this order so that the priority is set correctly 
 ```
 conda config --add channels defaults
 conda config --add channels bioconda
+conda config --add channels r
 conda config --add channels conda-forge
 ```
 

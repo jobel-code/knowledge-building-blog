@@ -35,3 +35,53 @@ However, you need to keep only one installation, either *GCP on ubuntu* or *usin
 
 **windows with `PowerShell`**
 `$env:GOOGLE_APPLICATION_CREDENTIALS="[PATH]"`
+
+## Create datalake bucket
+
+- See **[regions and zones](https://cloud.google.com/compute/docs/regions-zones/)**
+
+` gsutil mb -p [PROJECT_NAME] -c [STORAGE_CLASS] -l [BUCKET_LOCATION] gs://[BUCKET_NAME]/`
+
+[STORAGE_CLASS] = Multi-Regional  [LOCATION] 'eu'
+                  Regional [LOCATION] 'europe-west1' (Belgium) includes GPUs and cloud functions
+                  Regional [LOCATION] 'europe-north1' (Finland) limited services.
+```
+# Imports the Google Cloud client library
+from google.cloud import storage
+# Instantiates a client
+storage_client = storage.Client()
+#
+Bucket = storage.bucket.Bucket(client=storage_client, name =bucket_name)
+Bucket.storage_class = "MULTI_REGIONAL"
+bucket = Bucket.create(location='eu')
+
+```
+
+# From zero to jupyterhub in gcp
+[https://z2jh.jupyter.org/en/stable/google/step-zero-gcp.html](https://z2jh.jupyter.org/en/stable/google/step-zero-gcp.html)
+
+# Enter a name for your cluster
+```
+CLUSTERNAME=<YOUR-CLUSTER-NAME>
+
+gcloud beta container clusters create $CLUSTERNAME \
+  --machine-type n1-standard-2 \
+  --num-nodes 2 \
+  --cluster-version latest \
+  --node-labels hub.jupyter.org/node-purpose=core
+
+```
+
+To test if your cluster is initialized, run:
+`kubectl get node`
+
+# Enter your email
+```
+EMAIL=
+
+kubectl create clusterrolebinding cluster-admin-binding \
+  --clusterrole=cluster-admin \
+  --user=$EMAIL
+
+```
+# Now setup jupyterhub
