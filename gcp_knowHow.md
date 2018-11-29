@@ -57,6 +57,12 @@ bucket = Bucket.create(location='eu')
 
 ```
 
+# Install the Firebase SDK for python
+pip install firebase-admin
+conda install markdown
+pip install google-cloud-firestore
+See also (https://googleapis.github.io/google-cloud-python/latest/firestore/index.html)[https://googleapis.github.io/google-cloud-python/latest/firestore/index.html#]
+
 # From zero to jupyterhub in gcp
 [https://z2jh.jupyter.org/en/stable/google/step-zero-gcp.html](https://z2jh.jupyter.org/en/stable/google/step-zero-gcp.html)
 

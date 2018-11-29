@@ -56,6 +56,8 @@ sudo apt install gdal-bin python-gdal python3-gdal # if you don't have gdal 1.11
 
 ```
 conda install -c conda-forge --quiet --yes \
+# blaze is used in SHARK data
+blaze \  
 geopandas \
 scipy-sugar \
 tinydb \
@@ -96,3 +98,7 @@ Useful for tables, plotting and forms
 `pip install pyvttbl`
 
 **notes** `Pyvttbl` enables you to create multidimensional pivot tables, process data and carry out statistical tests.
+
+
+# Google SDK
+sudo pip install firebase-admin

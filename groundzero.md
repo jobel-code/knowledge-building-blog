@@ -40,8 +40,10 @@ conda update conda --quiet --yes
 `conda create --name amasing python=3.6 conda`
 
 
+
 #
 conda install -c conda-forge --yes --quiet --name amasing \
+        blaze \
         crcmod \
         dask \
         dill \
@@ -81,7 +83,11 @@ conda install -c conda-forge --yes --quiet --name amasing \
         sympy \
         tornado \
         widgetsnbextension \
+        # Required for excel support
+        xlrd \  
         xgboost
+
+pip install s2sphere
 
 pip install --quiet -U --upgrade-strategy only-if-needed --no-cache-dir \
 bs4 \
