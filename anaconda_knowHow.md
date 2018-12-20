@@ -11,8 +11,13 @@ Each package added to Bioconda also has a corresponding Docker [BioContainer](ht
 
 It is important to add them in this order so that the priority is set correctly (that is, conda-forge is highest priority).
 
+# SEE: https://github.com/geopandas/geopandas/issues/237
+# conda config --remove channels defaults
+# conda config --add channels conda-forge
+#
+
 ```
-conda config --add channels defaults
+# conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels r
 conda config --add channels conda-forge
@@ -27,6 +32,22 @@ conda install -c conda-forge jupyter_contrib_nbextensions
 conda install -c conda-forge jupyter_nbextensions_configurator
 ```
 
+# RECOMMENDED PRACITCE FOR AMASING:
+[.../aquabiota-realm/datascience/environment.yml](.../aquabiota-realm/datascience/environment.yml)
+
+`conda env create environment.yml`
+
+```
+###############################################
+# jupyter labextension install @jupyterlab/hub-extension@^0.12.0
+## Activate ipywidgets extension in the environment that runs the notebook server
+#    jupyter nbextension enable --py widgetsnbextension --sys-prefix &&
+#    # Also activate ipywidgets extension for JupyterLab
+#   # Check this URL for most recent compatibilities
+#    # https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager
+#    jupyter labextension install @jupyter-widgets/jupyterlab-manager@^0.38.1 &&
+#    jupyter labextension install jupyterlab_bokeh@0.6.3 &&
+```
 
 
 # Make sure conda install -c conda-forge gdal #is installed
