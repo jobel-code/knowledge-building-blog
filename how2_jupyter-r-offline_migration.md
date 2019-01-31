@@ -1,3 +1,11 @@
+# Sources of inspiration:
+
+[Installing the R kernel in Jupyter Lab
+Posted on May 16, 2018](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/)
+
+
+
+
 # Installing Anaconda and R for an offline computer
 
 1) Download from a computer with internet access
@@ -252,6 +260,7 @@ The following NEW packages will be INSTALLED:
 
 ---
 
+
 Then, open an R session on a terminal:
 `$ R`
 
@@ -265,14 +274,25 @@ Platform: x86_64-conda_cos6-linux-gnu (64-bit)
 >
 ```
 Using the R prompt of oyr `my-r-env`
+```
+> install.packages("devtools" )  # using Sweden Repo 
+> IRkernel::installspec()   #  IRkernel::installspec(user = FALSE) # install system-wide
 
-> install.packages("devtools", repos= 'https://ftp.acc.umu.se/' )  # using Sweden Repo 
+> install.packages(c('DT', 'ROCR', 'caTools', 'lubridate', 'rjson', 'littler', 'docopt', 'formatR', 'remotes', 'selectr'), dependencies=TRUE)
+
+...
+> quit()
+```
+
+`conda install r-rgdal r-raster -c conda-forge`
+`conda install r-bookdown r-PKI -c conda-forge`   
+
+**note** install gdal after in the environment to update also the previous package for r-rgdal
+
+`conda install gdal -c conda-forge`
 
 
 
-#############################################
-or
-`conda create -n my-r-env -c r r-essentials`
 
 
 
