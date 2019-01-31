@@ -1,15 +1,23 @@
 # Installing Anaconda and R for an offline computer
-1) Downloads from a computer with internet access
+
+1) Download from a computer with internet access
+
 **Install miniconda** *(optional- but choose wheter you want a full distribution or a mini)*
-**Windows**: `https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe`
-**Linux**: `https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+
+*Windows*: `https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe`
+
+*Linux*: `https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
 
 or 
-**Install anaconda dstribution** (optional- but choose wheter you want a full distribution or a mini)
-**Windows**: `https://repo.continuum.io/archive/Anaconda3-2018.12-Windows-x86_64.exe`
-**Linux**: `https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh`
 
-# The following steps are for a Linux machine (Ubuntu 18.04) with internet access. From there we will replicate our environment to a windows-based offline machine.
+**Install anaconda dstribution** (optional- but choose wheter you want a full distribution or a mini)
+
+*Windows*: `https://repo.continuum.io/archive/Anaconda3-2018.12-Windows-x86_64.exe`
+
+*Linux*: `https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh`
+
+
+### The following steps are for a Linux machine (Ubuntu 18.04) with internet access. From there we will replicate our environment to a windows-based offline machine.
 
 `conda create -n my-r-env -c conda-forge anaconda python=3.6.7 jupyter_client`
 
@@ -244,7 +252,23 @@ The following NEW packages will be INSTALLED:
 
 ---
 
-Then, in a terminal  
+Then, open an R session on a terminal:
+`$ R`
+
+You will get something similar to:
+
+```
+R version 3.5.1 (2018-07-02) -- "Feather Spray"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-conda_cos6-linux-gnu (64-bit)
+
+>
+```
+Using the R prompt of oyr `my-r-env`
+
+> install.packages("devtools", repos= 'https://ftp.acc.umu.se/' )  # using Sweden Repo 
+
+
 
 #############################################
 or
