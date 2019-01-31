@@ -1,9 +1,9 @@
 # Sources of inspiration:
 
 [Installing the R kernel in Jupyter Lab
-Posted on May 16, 2018](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/)
+Posted on May 16, 2018 by Karlijn Willems, November 30th, 2016](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/)
 
-
+[Jupyter And R Markdown: Notebooks With R](https://www.datacamp.com/community/blog/jupyter-notebook-r#gs.z0gxLNc)
 
 
 # Installing Anaconda and R for an offline computer
@@ -290,6 +290,14 @@ Using the R prompt of oyr `my-r-env`
 **note** install gdal after in the environment to update also the previous package for r-rgdal
 
 `conda install gdal -c conda-forge`
+
+To comunicate between python and R, it is recommended to use `rpy2` package
+
+`conda install rpy2`
+
+Adding geospatial packages(Note this will downgrade several packages):
+
+`conda install r-RColorBrewer r-RandomFields r-classInt r-deldir r-gstat r-mapdata r-maptools r-mapview r-ncdf4 r-rgeos r-rlas r-sf r-sp r-spacetime r-spatstat r-spdep r-geoR r-geosphere -c conda-forge`
 
 
 
