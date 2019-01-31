@@ -33,7 +33,7 @@ or
 
 **Note** as we have already activated `my-r-env` we don't need to use the parameter `-n my-r-env` when installing the `r-essentials` package. Also, note that I have used the conda-forge instead of the channel r for my r enviroment.
 
-`conda install -n my-r-env  -c conda-forge r-essentials`  
+`conda install -n my-r-env  -c conda-forge r-base=3.4.1 r-essentials`  
 
 ---
 The following NEW packages will be INSTALLED:
@@ -297,7 +297,21 @@ To comunicate between python and R, it is recommended to use `rpy2` package
 
 Adding geospatial packages(Note this will downgrade several packages):
 
-`conda install r-RColorBrewer r-RandomFields r-classInt r-deldir r-gstat r-mapdata r-maptools r-mapview r-ncdf4 r-rgeos r-rlas r-sf r-sp r-spacetime r-spatstat r-spdep r-geoR r-geosphere -c conda-forge`
+`conda install r-RColorBrewer r-RandomFields r-classInt r-deldir r-gstat r-mapdata r-maptools r-ncdf4 r-rgeos r-rlas r-sf r-sp r-spacetime r-spatstat r-spdep r-geoR r-geosphere -c conda-forge`   # Note the r-mapview have conflicts with the required earth package for biomod2
+
+# Modelling packages
+If you are goint to use Biomod2 packages, it depends on the `earth` package. So, run first:
+
+`conda install r-earth -c conda-forge`  #  to downgrade the r enviroment and avoid the following error:
+
+```
+Warning messages:
+1: package ‘earth’ is not available (for R version 3.4.1) 
+2: In install.packages(c("earth", "dismo", "biomod2")) :
+  installation of package ‘biomod2’ had non-zero exit status
+``` 
+
+Then you can install the `biomod2` with dependencies enabled in an R promt.
 
 
 
