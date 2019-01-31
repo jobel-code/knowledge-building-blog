@@ -27,18 +27,22 @@ or
 
 ### The following steps are for a Linux machine (Ubuntu 18.04) with internet access. From there we will replicate our environment to a windows-based offline machine.
 
-`conda create -n my-r-env -c conda-forge anaconda python=3.6.7 jupyter_client`
+To comunicate between python and R, it is recommended to use `rpy2` package, and if you use biomod2 and geospatial r functions do not forget to install the gdal and raster packages.
+
+`conda create -n my-r-env -c conda-forge anaconda python=3.6.7 jupyter_client r-base=3.5.1 r-essentials r-rgdal r-raster r-bookdown r-PKI gdal rpy2`
 
 `conda activate my-r-env`
 
 **Note** as we have already activated `my-r-env` we don't need to use the parameter `-n my-r-env` when installing the `r-essentials` package. Also, note that I have used the conda-forge instead of the channel r for my r enviroment.
 
-`conda install -n my-r-env  -c conda-forge r-base=3.4.1 r-essentials`  
 
 ---
+
+
 The following NEW packages will be INSTALLED:
 
     _r-mutex:               1.0.0-anacondar_1                       
+    anaconda:               custom-py36hbbc8b67_0                   
     attrs:                  18.2.0-py_0                  conda-forge
     backcall:               0.1.0-py_0                   conda-forge
     binutils_impl_linux-64: 2.31.1-h6176602_1            conda-forge
@@ -46,12 +50,14 @@ The following NEW packages will be INSTALLED:
     bleach:                 3.1.0-py_0                   conda-forge
     bwidget:                1.9.11-1                                
     bzip2:                  1.0.6-h14c3975_1002          conda-forge
-    cairo:                  1.14.12-h8948797_3                      
-    curl:                   7.63.0-hbc83047_1000                    
+    ca-certificates:        2018.11.29-ha4d7672_0        conda-forge
+    cairo:                  1.14.12-h80bd089_1005        conda-forge
+    certifi:                2018.11.29-py36_1000         conda-forge
+    curl:                   7.63.0-h646f8bb_1000         conda-forge
+    decorator:              4.3.2-py_0                   conda-forge
     entrypoints:            0.3-py36_1000                conda-forge
-    fontconfig:             2.13.0-h9420a91_0                       
+    fontconfig:             2.13.1-h2176d3f_1000         conda-forge
     freetype:               2.9.1-h94bbf69_1005          conda-forge
-    fribidi:                1.0.5-h14c3975_1000          conda-forge
     gcc_impl_linux-64:      7.3.0-habb00fd_1             conda-forge
     gcc_linux-64:           7.3.0-h553295d_3             conda-forge
     gettext:                0.19.8.1-h9745a5d_1001       conda-forge
@@ -60,26 +66,32 @@ The following NEW packages will be INSTALLED:
     glib:                   2.56.2-had28632_1001         conda-forge
     gmp:                    6.1.2-hf484d3e_1000          conda-forge
     graphite2:              1.3.13-hf484d3e_1000         conda-forge
-    gsl:                    2.4-h14c3975_4                          
     gxx_impl_linux-64:      7.3.0-hdf63c60_1             conda-forge
     gxx_linux-64:           7.3.0-h553295d_3             conda-forge
     harfbuzz:               1.9.0-he243708_1001          conda-forge
     icu:                    58.2-hf484d3e_1000           conda-forge
     ipykernel:              5.1.0-py36h24bf2e0_1002      conda-forge
     ipython:                7.2.0-py36h24bf2e0_1000      conda-forge
+    ipython_genutils:       0.2.0-py_1                   conda-forge
     jedi:                   0.13.2-py36_1000             conda-forge
     jinja2:                 2.10-py_1                    conda-forge
     jpeg:                   9c-h14c3975_1001             conda-forge
     jsonschema:             3.0.0a3-py36_1000            conda-forge
-    krb5:                   1.16.1-h173b8e3_7                       
-    libcurl:                7.63.0-h20c2e04_1000                    
+    jupyter_client:         5.2.4-py_1                   conda-forge
+    jupyter_core:           4.4.0-py_0                   conda-forge
+    krb5:                   1.16.3-hc83ff2d_1000         conda-forge
+    libcurl:                7.63.0-h01ee5af_1000         conda-forge
     libedit:                3.1.20170329-hf8c457e_1001   conda-forge
+    libffi:                 3.2.1-hf484d3e_1005          conda-forge
+    libgcc-ng:              7.3.0-hdf63c60_0             conda-forge
     libgfortran-ng:         7.3.0-hdf63c60_0                        
     libiconv:               1.15-h14c3975_1004           conda-forge
     libpng:                 1.6.36-h84994c4_1000         conda-forge
-    libssh2:                1.8.0-1                      conda-forge
+    libsodium:              1.0.16-h14c3975_1001         conda-forge
+    libssh2:                1.8.0-h1ad7b7a_1003          conda-forge
+    libstdcxx-ng:           7.3.0-hdf63c60_0             conda-forge
     libtiff:                4.0.10-h648cc4a_1001         conda-forge
-    libuuid:                1.0.3-1                      conda-forge
+    libuuid:                2.32.1-h14c3975_1000         conda-forge
     libxcb:                 1.13-h14c3975_1002           conda-forge
     libxml2:                2.9.8-h143f9aa_1005          conda-forge
     make:                   4.2.1-h14c3975_2004          conda-forge
@@ -87,14 +99,17 @@ The following NEW packages will be INSTALLED:
     mistune:                0.8.4-py36h14c3975_1000      conda-forge
     nbconvert:              5.3.1-py_1                   conda-forge
     nbformat:               4.4.0-py_1                   conda-forge
+    ncurses:                6.1-hf484d3e_1002            conda-forge
     notebook:               5.7.4-py36_1000              conda-forge
+    openssl:                1.0.2p-h14c3975_1002         conda-forge
     pandoc:                 2.5-1                        conda-forge
     pandocfilters:          1.4.2-py_1                   conda-forge
-    pango:                  1.42.4-h049681c_0                       
+    pango:                  1.40.14-hf0c64fd_1003        conda-forge
     parso:                  0.3.2-py_0                   conda-forge
-    pcre:                   8.42-h439df22_0                         
+    pcre:                   8.41-hf484d3e_1003           conda-forge
     pexpect:                4.6.0-py36_1000              conda-forge
     pickleshare:            0.7.5-py36_1000              conda-forge
+    pip:                    19.0.1-py36_0                conda-forge
     pixman:                 0.34.0-h14c3975_1003         conda-forge
     prometheus_client:      0.5.0-py_0                   conda-forge
     prompt_toolkit:         2.0.8-py_0                   conda-forge
@@ -102,9 +117,12 @@ The following NEW packages will be INSTALLED:
     ptyprocess:             0.6.0-py36_1000              conda-forge
     pygments:               2.3.1-py_0                   conda-forge
     pyrsistent:             0.14.9-py36h14c3975_1000     conda-forge
+    python:                 3.6.7-hd21baee_1001          conda-forge
+    python-dateutil:        2.7.5-py_0                   conda-forge
+    pyzmq:                  17.1.2-py36h6afc9c9_1001     conda-forge
     r-assertthat:           0.2.0-r351h6115d3f_1001      conda-forge
     r-backports:            1.1.3-r351h96ca727_1000      conda-forge
-    r-base:                 3.5.1-h1e0a451_2                        
+    r-base:                 3.5.1-he45234b_1005          conda-forge
     r-base64enc:            0.1_3-r351h96ca727_1002      conda-forge
     r-bh:                   1.69.0_1-r351h6115d3f_0      conda-forge
     r-bindr:                0.1.1-r351h6115d3f_1001      conda-forge
@@ -176,7 +194,7 @@ The following NEW packages will be INSTALLED:
     r-nlme:                 3.1_137-r351ha65eedd_1000    conda-forge
     r-nnet:                 7.3_12-r351h96ca727_1002     conda-forge
     r-numderiv:             2016.8_1-r351h6115d3f_1001   conda-forge
-    r-openssl:              1.0.2-r351h96ca727_1                    
+    r-openssl:              1.1-r351hff1dc39_1000        conda-forge
     r-pbdzmq:               0.3_3-r351h193a840_1000      conda-forge
     r-pillar:               1.3.1-r351h6115d3f_1000      conda-forge
     r-pkgconfig:            2.0.2-r351h6115d3f_1001      conda-forge
@@ -238,15 +256,23 @@ The following NEW packages will be INSTALLED:
     r-xts:                  0.11_1-r351h96ca727_1000     conda-forge
     r-yaml:                 2.2.0-r351h96ca727_1001      conda-forge
     r-zoo:                  1.8_4-r351h96ca727_1000      conda-forge
+    readline:               7.0-hf8c457e_1001            conda-forge
     send2trash:             1.5.0-py_0                   conda-forge
+    setuptools:             40.7.1-py36_0                conda-forge
+    six:                    1.12.0-py36_1000             conda-forge
+    sqlite:                 3.26.0-h67949de_1000         conda-forge
     terminado:              0.8.1-py36_1001              conda-forge
     testpath:               0.4.2-py36_1000              conda-forge
+    tk:                     8.6.9-h84994c4_1000          conda-forge
     tktable:                2.10-h14c3975_0                         
+    tornado:                5.1.1-py36h14c3975_1000      conda-forge
+    traitlets:              4.3.2-py36_1000              conda-forge
     wcwidth:                0.1.7-py_1                   conda-forge
     webencodings:           0.5.1-py_1                   conda-forge
+    wheel:                  0.32.3-py36_0                conda-forge
     xorg-kbproto:           1.0.7-h14c3975_1002          conda-forge
     xorg-libice:            1.0.9-h14c3975_1004          conda-forge
-    xorg-libsm:             1.2.2-h470a237_5             conda-forge
+    xorg-libsm:             1.2.3-h4937e3b_1000          conda-forge
     xorg-libx11:            1.6.6-h14c3975_1000          conda-forge
     xorg-libxau:            1.0.8-h14c3975_1006          conda-forge
     xorg-libxdmcp:          1.1.2-h14c3975_1007          conda-forge
@@ -255,8 +281,58 @@ The following NEW packages will be INSTALLED:
     xorg-renderproto:       0.11.1-h14c3975_1002         conda-forge
     xorg-xextproto:         7.3.0-h14c3975_1002          conda-forge
     xorg-xproto:            7.0.31-h14c3975_1007         conda-forge
+    xz:                     5.2.4-h14c3975_1001          conda-forge
+    zeromq:                 4.2.5-hf484d3e_1006          conda-forge
+    zlib:                   1.2.11-h14c3975_1004         conda-forge
+    
+    
+    + 
+    The following NEW packages will be INSTALLED:
 
-
+    blas:          1.0-mkl                               
+    boost-cpp:     1.68.0-h11c811c_1000       conda-forge
+    expat:         2.2.5-hf484d3e_1002        conda-forge
+    freexl:        1.0.5-h14c3975_1002        conda-forge
+    gdal:          2.3.3-py36h1c6dbfb_1001    conda-forge
+    geos:          3.7.1-hf484d3e_1000        conda-forge
+    geotiff:       1.4.3-h1105359_1000        conda-forge
+    giflib:        5.1.4-h14c3975_1001        conda-forge
+    hdf4:          4.2.13-h9a582f1_1002       conda-forge
+    hdf5:          1.10.4-nompi_h11e915b_1105 conda-forge
+    intel-openmp:  2019.1-144                            
+    json-c:        0.13.1-h14c3975_1001       conda-forge
+    kealib:        1.4.10-he7154bc_1002       conda-forge
+    libdap4:       3.19.1-hd48c02d_1000       conda-forge
+    libgdal:       2.3.3-h982c1cc_1001        conda-forge
+    libkml:        1.3.0-h328b03d_1009        conda-forge
+    libnetcdf:     4.6.2-hbdf4f91_1001        conda-forge
+    libpq:         10.6-h13b8bad_1000         conda-forge
+    libspatialite: 4.3.0a-hb5ec416_1026       conda-forge
+    mkl:           2019.1-144                            
+    mkl_fft:       1.0.10-py36h14c3975_1      conda-forge
+    mkl_random:    1.0.2-py36h637b7d7_2       conda-forge
+    numpy:         1.15.4-py36h7e9f1db_0                 
+    numpy-base:    1.15.4-py36hde5b4d6_0                 
+    openjpeg:      2.3.0-hf38bd82_1003        conda-forge
+    poppler:       0.67.0-h2fc8fa2_1002       conda-forge
+    poppler-data:  0.4.9-1                    conda-forge
+    postgresql:    10.6-h66cca7a_1000         conda-forge
+    proj4:         5.2.0-h14c3975_1001        conda-forge
+    pytz:          2018.9-py_0                conda-forge
+    r-bit:         1.1_12-r351h14c3975_1002   conda-forge
+    r-bit64:       0.9_7-r351h96ca727_1000    conda-forge
+    r-blob:        1.1.1-r351_1001            conda-forge
+    r-bookdown:    0.9-r351h6115d3f_1000      conda-forge
+    r-memoise:     1.1.0-r351h6115d3f_1001    conda-forge
+    r-pki:         0.1_5.1-r351h96ca727_1001  conda-forge
+    r-raster:      2.6_7-r351h29659fb_1002    conda-forge
+    r-rgdal:       1.3_6-r351h285a78d_1       conda-forge
+    r-rsqlite:     2.1.1-r351h29659fb_1000    conda-forge
+    r-sp:          1.3_1-r351h96ca727_1000    conda-forge
+    rpy2:          2.9.4-py36r351h941a26a_1   conda-forge
+    tzcode:        2018g-h14c3975_1001        conda-forge
+    tzlocal:       1.5.1-py_0                 conda-forge
+    xerces-c:      3.2.2-hac72e42_1001        conda-forge
 
 ---
 
@@ -278,42 +354,39 @@ Using the R prompt of oyr `my-r-env`
 > install.packages("devtools" )  # using Sweden Repo 
 > IRkernel::installspec()   #  IRkernel::installspec(user = FALSE) # install system-wide
 
-> install.packages(c('DT', 'ROCR', 'caTools', 'lubridate', 'rjson', 'littler', 'docopt', 'formatR', 'remotes', 'selectr'), dependencies=TRUE)
+> install.packages(c('DT', 'ROCR', 'caTools', 'lubridate', 'rjson', 'littler', 'docopt', 'formatR', 'remotes', 'selectr'), )   # dependencies=TRUE
 
 ...
 > quit()
 ```
 
-`conda install r-rgdal r-raster -c conda-forge`
-`conda install r-bookdown r-PKI -c conda-forge`   
+# Modelling packages: 
 
-**note** install gdal after in the environment to update also the previous package for r-rgdal
+```
+# Run in R prompt 
+> install.packages(c("biomod2"), dependencies=TRUE )
 
-`conda install gdal -c conda-forge`
 
-To comunicate between python and R, it is recommended to use `rpy2` package
+# Adding geospatial packages
+> install.packages(c("RColorBrewer", "deldir", "gstat", "maptools", "mapdata", "rgeos", "geoR", "geosphere", "spdep","sp"))
+```
 
-`conda install rpy2`
+```
+# NOTE
+Warning messages:
+1: packages ‘r-spacetime’, ‘r-spatstat’ are not available (for R version 3.5.1) 
+2: In install.packages(c("RColorBrewer", "RandomFields", "classInt",  :
+  installation of package ‘units’ had non-zero exit status
+3: In install.packages(c("RColorBrewer", "RandomFields", "classInt",  :
+  installation of package ‘sf’ had non-zero exit status
 
-Adding geospatial packages(Note this will downgrade several packages):
-
-`conda install r-RColorBrewer r-RandomFields r-classInt r-deldir r-gstat r-mapdata r-maptools r-ncdf4 r-rgeos r-rlas r-sf r-sp r-spacetime r-spatstat r-spdep r-geoR r-geosphere -c conda-forge`   # Note the r-mapview have conflicts with the required earth package for biomod2
-
-# Modelling packages
-If you are goint to use Biomod2 packages, it depends on the `earth` package. So, run first:
-
-`conda install r-earth -c conda-forge`  #  to downgrade the r enviroment and avoid the following error:
-
+```
 ```
 Warning messages:
 1: package ‘earth’ is not available (for R version 3.4.1) 
 2: In install.packages(c("earth", "dismo", "biomod2")) :
   installation of package ‘biomod2’ had non-zero exit status
 ``` 
-
-Then you can install the `biomod2` with dependencies enabled in an R promt.
-
-
 
 
 
