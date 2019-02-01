@@ -353,6 +353,10 @@ Using the R prompt of oyr `my-r-env`
 ```
 > install.packages("devtools" )  # using Sweden Repo 
 > IRkernel::installspec()   #  IRkernel::installspec(user = FALSE) # install system-wide
+> install.packages('ggplot2')
+> install.packages(c('rmarkdown', 'caTools', 'bitops'))
+
+> install.packages('reticulate')  # # python support in RMarkdown
 
 > install.packages(c('DT', 'ROCR', 'caTools', 'lubridate', 'rjson', 'littler', 'docopt', 'formatR', 'remotes', 'selectr'), )   # dependencies=TRUE
 
