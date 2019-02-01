@@ -25,7 +25,7 @@ or
 *Linux*: `https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh`
 
 
-### The following steps are for a Linux machine (Ubuntu 18.04) with internet access. From there we will replicate our environment to a windows-based offline machine.
+### The following steps are for a Linux machine (Ubuntu 18.04) with internet access. Note, the OS of the machines that will replicate the enviroment must match. Windows 10 to Windows 10, Ubuntu 18.04 to Ubuntu 18.+, etc...
 
 To comunicate between python and R, it is recommended to use `rpy2` package, and if you use biomod2 and geospatial r functions do not forget to install the gdal and raster packages.
 
